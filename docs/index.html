@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Aletheia Mods — catálogo</title>
+  <style>
+    :root {
+      --ink: #171a2b;
+      --muted: #5d647c;
+      --paper: #f6f2e8;
+      --card: #fffdf8;
+      --line: #d9d1bf;
+      --gold: #9b762d;
+      --navy: #00042f;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #f2ead9;
+        --muted: #b9bfd8;
+        --paper: #0b0d1a;
+        --card: #12162a;
+        --line: #2b3150;
+        --gold: #d6b46b;
+        --navy: #00042f;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 0%, rgba(155, 118, 45, .17), transparent 34rem), var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: min(46rem, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 4rem 0 5rem;
+    }
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 4.5rem;
+      height: 4.5rem;
+      border: 2px solid var(--gold);
+      border-radius: 1rem;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.7rem;
+      line-height: 1;
+    }
+    h1 {
+      margin: 1.2rem 0 .35rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      letter-spacing: .015em;
+    }
+    .lead { margin: 0 0 2rem; color: var(--muted); font-size: 1.05rem; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: .9rem;
+      background: var(--card);
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    .row { display: flex; justify-content: space-between; gap: 1rem; padding: .45rem 0; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: 0; }
+    .row span:first-child { color: var(--muted); }
+    .row span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+    code, a { color: inherit; }
+    a { text-decoration-color: var(--gold); text-underline-offset: .18em; }
+    .links { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; margin-top: 1.5rem; }
+    .links a { font-weight: 600; }
+    .note { margin-top: 2rem; color: var(--muted); font-size: .9rem; }
+    .badge { display: inline-block; padding: .1rem .5rem; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold); font-size: .78rem; font-weight: 600; vertical-align: .18rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">Α</div>
+    <h1>Aletheia Mods <span class="badge">v1</span></h1>
+    <p class="lead">Catálogo estático de recursos bíblicos de dominio público, CC BY y contenido propio. La app descarga solo lo que necesita y lo cachea.</p>
+
+    <section class="card" aria-labelledby="estado">
+      <h2 id="estado" style="margin:0 0 .5rem;font-size:1rem;">Contenido publicado</h2>
+      <div class="row"><span>Recursos</span><span id="resources">14</span></div>
+      <div class="row"><span>Versículos indexados</span><span id="verses">248 870</span></div>
+      <div class="row"><span>Secciones no bíblicas</span><span id="sections">23 633</span></div>
+      <div class="row"><span>Referencias cruzadas</span><span id="xrefs">376 083</span></div>
+      <div class="row"><span>Índice FTS5 comprimido</span><span id="indexSize">48,8 MB</span></div>
+    </section>
+
+    <div class="links">
+      <a href="v1/mods.json">mods.json</a>
+      <a href="v1/index.json">index.json</a>
+      <a href="v1/search.meta.json">search.meta.json</a>
+      <a href="https://yojananyosef.github.io/aletheia/">Abrir Aletheia</a>
+    </div>
+
+    <p class="note">Contenido: dominio público, CC BY 4.0, CC BY-SA 4.0 y material propio. Consulta <a href="https://github.com/yojananyosef/aletheia-mods/blob/main/NOTICE.md">NOTICE.md</a> para la atribución completa. No se incluyen marcas ni activos de terceros.</p>
+  </main>
+  <script>
+    fetch('v1/mods.json', { cache: 'no-cache' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((manifest) => {
+        if (!manifest) return;
+        const search = manifest.search || {};
+        const fmt = new Intl.NumberFormat('es');
+        const set = (id, value) => {
+          const el = document.getElementById(id);
+          if (el && value != null) el.textContent = value;
+        };
+        set('resources', manifest.resources?.length);
+        set('verses', search.indexedVerses != null ? fmt.format(search.indexedVerses) : null);
+        set('sections', search.indexedSections != null ? fmt.format(search.indexedSections) : null);
+        set('xrefs', search.indexedCrossReferences != null ? fmt.format(search.indexedCrossReferences) : null);
+        const bytes = search.compressedBytes;
+        if (bytes) set('indexSize', (bytes / 1_000_000).toLocaleString('es', { maximumFractionDigits: 1 }) + ' MB');
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

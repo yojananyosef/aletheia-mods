@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "name": "Aletheia Mods",
+  "version": "2026.10.20.194554",
+  "builtAt": "2026-10-20T19:45:54Z",
+  "publishedAt": "2026-10-20T22:28:15Z",
+  "basePath": "/aletheia-mods/v1/",
+  "license": "Ver NOTICE.md: dominio público, CC BY 4.0, CC BY-SA 4.0 y contenido propio.",
+  "search": {
+    "schema": 1,
+    "indexHash": "8d4165fda6ec9385",
+    "bytes": 153804800,
+    "compressedBytes": 48753446,
+    "indexedResources": 14,
+    "indexedVerses": 248870,
+    "indexedSections": 23633,
+    "indexedEntries": 272503,
+    "indexedCrossReferences": 376083,
+    "builtAt": "2026-10-20T19:45:54Z"
+  },
+  "resources": [
+    {
+      "id": "bible.asv",
+      "type": "bible",
+      "title": "American Standard Version",
+      "language": "en",
+      "license": {
+        "kind": "public-domain",
+        "text": "Public Domain"
+      },
+      "stats": {
+        "books": 66,
+        "sections": 1189,
+        "verses": 31102
+      }
+    },
+    {
+      "id": "bible.bes",
+      "type": "bible",
+      "title": "La Biblia en Español Sencillo",
+      "language": "es",
+      "license": {
+        "kind": "public-domain",
+        "text": "Public Domain"
+      },
+      "stats": {
+        "books": 66,
+        "sections": 1189,
+        "verses": 31102
+      }
+    },
+    {
+      "id": "bible.bll",
+      "type": "bible",
+      "title": "Santa Biblia libre Latinoamericano",
+      "language": "es",
+      "license": {
+        "kind": "public-domain",
+        "text": "Public Domain"
+      },
+      "stats": {
+        "books": 66,
+        "sections": 1189,
+        "verses": 31103
+      }
+    },
+    {
+      "id": "bible.kjv",
+      "type": "bible",
+      "title": "King James Version",
+      "language": "en",
+      "license": {
+        "kind": "public-domain",
+        "text": "Public Domain"
+      },
+      "stats": {
+        "books": 66,
+        "sections": 1189,
+        "verses": 31102
+      }
+    },
+    {
+      "id": "bible.rv1909",
+      "type": "bible",
+      "title": "Reina-Valera 1909",
+      "language": "es",
+      "license": {
+        "kind": "public-domain",
+        "text": "Dominio público"
+      },
+      "stats": {
+        "books": 66,
+        "sections": 1189,
+        "verses": 31102
+      }
+    },
+    {
+      "id": "bible.sblm",
+      "type": "bible",
+      "title": "Santa Biblia libre para el mundo",
+      "language": "es",
+      "license": {
+        "kind": "public-domain",
+        "text": "Public Domain"
+      },
+      "stats": {
+        "books": 66,
+        "sections": 1189,
+        "verses": 31103
+      }
+    },
+    {
+      "id": "bible.tagnt",
+      "type": "bible",
+      "title": "Texto griego (TAGNT)",
+      "language": "grc",
+      "license": {
+        "kind": "cc-by",
+        "text": "CC BY 4.0 — STEPBible.org / Tyndale House Cambridge"
+      },
+      "stats": {
+        "books": 27,
+        "sections": 260,
+        "verses": 7953
+      }
+    },
+    {
+      "id": "bible.tahot",
+      "type": "bible",
+      "title": "Texto hebreo (TAHOT)",
+      "language": "he",
+      "license": {
+        "kind": "cc-by",
+        "text": "CC BY 4.0 — STEPBible.org / Tyndale House Cambridge"
+      },
+      "stats": {
+        "books": 39,
+        "sections": 929,
+        "verses": 23261
+      }
+    },
+    {
+      "id": "bible.vbl",
+      "type": "bible",
+      "title": "Versión Biblia Libre",
+      "language": "es",
+      "license": {
+        "kind": "cc-by-sa",
+        "text": "CC BY-SA 4.0"
+      },
+      "stats": {
+        "books": 66,
+        "sections": 1189,
+        "verses": 31102
+      }
+    },
+    {
+      "id": "commentary.matthew-henry-concise",
+      "type": "commentary",
+      "title": "Matthew Henry — Comentario conciso",
+      "language": "en",
+      "license": {
+        "kind": "public-domain",
+        "text": "CC0-1.0 (texto original de dominio público)"
+      },
+      "stats": {
+        "books": 0,
+        "sections": 1189,
+        "verses": 0
+      }
+    },
+    {
+      "id": "devotional.daily",
+      "type": "devotional",
+      "title": "Devocional diario",
+      "language": "es",
+      "license": {
+        "kind": "original",
+        "text": "Reflexiones propias; versículos de la RV1909 (dominio público)"
+      },
+      "stats": {
+        "sections": 366
+      }
+    },
+    {
+      "id": "dictionary.easton",
+      "type": "dictionary",
+      "title": "Diccionario bíblico de Easton",
+      "language": "en",
+      "license": {
+        "kind": "public-domain",
+        "text": "Public Domain"
+      },
+      "stats": {
+        "books": 0,
+        "sections": 3961,
+        "verses": 0
+      }
+    },
+    {
+      "id": "factbook.core",
+      "type": "factbook",
+      "title": "Enciclopedia bíblica",
+      "language": "es",
+      "license": {
+        "kind": "original",
+        "text": "Contenido propio de Aletheia"
+      },
+      "stats": {
+        "sections": 32
+      }
+    },
+    {
+      "id": "lexicon.strongs",
+      "type": "dictionary",
+      "title": "Léxico Strong hebreo y griego",
+      "language": "mul",
+      "license": {
+        "kind": "cc-by",
+        "text": "TBESH/TBESG CC BY 4.0 (STEPBible.org / Tyndale House Cambridge); definiciones hebreas: Strong's Hebrew Dictionary, dominio público (CrossWire)."
+      },
+      "stats": {
+        "books": 0,
+        "sections": 18085,
+        "verses": 0
+      }
+    }
+  ],
+  "files": {
+    "index.json": {
+      "bytes": 10473,
+      "sha256": "29fe65186f589af8519735aa311fa8c5a0c774647061aeda7edd8334b44d8eb9"
+    },
+    "search.meta.json": {
+      "bytes": 247,
+      "sha256": "07bb9e5d127654c40e9f883af9f450fa9dde20c85281dcf6f94f6dc98e2fc8b0"
+    },
+    "search.sqlite.gz": {
+      "bytes": 48753446,
+      "sha256": "7e2c38a0ee9ffa5126696d4d5517c0a30dcd27c56bc7d4844264d7c559d0bf69"
+    },
+    "morphology.json": {
+      "bytes": 843478,
+      "sha256": "56df20c3b02a0fc4e598df025caa1409342276fd8236088e3ddb900d2aaafd2c"
+    }
+  }
+}
