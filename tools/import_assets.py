@@ -103,21 +103,83 @@ def main() -> int:
             "sha256": sha256(path),
         }
 
-    resources = [
-        {
-            "id": item.get("id"),
+    # v2: cada recurso publica el listado de sus archivos (ruta relativa al
+    # raíz del catálogo, tamaño y sha256). Es lo que permite que la app de
+    # escritorio instale el módulo desde la Tienda y verifique cada archivo,
+    # en vez de tener todo el contenido dentro del ejecutable.
+    def module_files(resource_id: str, size: bytes) -> dict:
+        root = dir_for(resource_id)
+        base = TARGET / root
+        if not base.exists():
+            raise SystemExit(f"ERROR: el recurso {resource_id} no tiene carpeta en el catálogo")
+        entries = [
+            {
+                "path": f"{root}/{path.relative_to(base).as_posix()}",
+                "bytes": path.stat().st_size,
+                "sha256": sha256(path),
+            }
+            for path in sorted(base.rglob("*"))
+            if path.is_file()
+        ]
+        return {
+            "id": resource_id,
+            "size": sum(entry["bytes"] for entry in entries),
+            "files": entries,
+        }
+
+    def dir_for(resource_id: str) -> str:
+        # Espeja `DocumentRepository.dirFor` de la app.
+        overrides = {"devotional.daily", "factbook.core", "lexicon.strongs"}
+        if resource_id in overrides:
+            return resource_id
+        return resource_id.split(".")[-1]
+
+    resources = []
+    for item in index:
+        resource_id = item.get("id")
+        entry = module_files(resource_id, 0)
+        listing = {
+            "id": resource_id,
             "type": item.get("type"),
             "title": item.get("title"),
             "language": item.get("language"),
             "license": item.get("license"),
             "stats": item.get("stats", {}),
+            "size": entry["size"],
+            "files": entry["files"],
         }
-        for item in index
+        resources.append(listing)
+    # El índice FTS5 es su propio módulo: la app lo instala aparte (con
+    # progreso y cancelación) y sigue igual de útil sin él.
+    search_files = [
+        {
+            "path": name,
+            "bytes": files[name]["bytes"],
+            "sha256": files[name]["sha256"],
+        }
+        for name in ("search.sqlite.gz", "search.meta.json")
+        if name in files
     ]
+    resources.append(
+        {
+            "id": "catalog.search",
+            "type": "dataset",
+            "title": "Búsqueda local (índice FTS5)",
+            "language": "mul",
+            "license": {"kind": "public-domain", "text": "Ver NOTICE.md: dominio público/CC"},
+            "stats": {
+                "entries": meta.get("indexedEntries", 0),
+                "verses": meta.get("indexedVerses", 0),
+                "sections": meta.get("indexedSections", 0),
+            },
+            "size": sum(file_["bytes"] for file_ in search_files),
+            "files": search_files,
+        },
+    )
     resources.sort(key=lambda item: str(item.get("id") or ""))
 
     manifest = {
-        "schema": 1,
+        "schema": 2,
         "name": "Aletheia Mods",
         "version": version,
         "builtAt": meta.get("builtAt"),
