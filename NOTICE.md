@@ -14,6 +14,8 @@ este repositorio (`docs/v1/`) y de la geometría de mapas que acompaña a la app
 | Reina-Valera 1909 (`bible.rv1909`) | [eBible.org — spaRV1909](https://ebible.org/spaRV1909/) · [zip USFM](https://ebible.org/Scriptures/spaRV1909_usfm.zip) | Dominio público | `copr.htm` del paquete de eBible declara Public Domain. |
 | King James Version (`bible.kjv`) | [eBible.org — eng-kjv](https://ebible.org/Scriptures/eng-kjv_usfm.zip) | Dominio público | Texto de 1611/1769; paquete de eBible con licencia Public Domain. |
 | American Standard Version 1901 (`bible.asv`) | [eBible.org — eng-asv](https://ebible.org/Scriptures/eng-asv_usfm.zip) | Dominio público | `copr.htm` del paquete declara Public Domain. |
+| Berean Standard Bible (`bible.bsb`) | [eBible.org — engbsb](https://ebible.org/Scriptures/engbsb_usfm.zip) | Dominio público | La ficha de eBible y el paquete (USFM, 2026) declaran **Public Domain**. Canon protestante de 66 libros. |
+| World English Bible, edición protestante (`bible.web`) | [eBible.org — engwebp](https://ebible.org/Scriptures/engwebp_usfm.zip) | Dominio público | La ficha de eBible declara **Public Domain**; proyecto World English Bible de dominio público. Edición sin deuterocanónicos. |
 | Santa Biblia libre Latinoamericano (`bible.bll`) | [eBible.org — spabll](https://ebible.org/Scriptures/spabll_usfm.zip) | Dominio público | `copr.htm` del paquete declara Public Domain; el propio paquete se identifica como borrador de traducción. |
 | Santa Biblia libre para el mundo (`bible.sblm`) | [eBible.org — spablm](https://ebible.org/Scriptures/spablm_usfm.zip) | Dominio público | `copr.htm` del paquete declara Public Domain. Es un borrador de traducción de 2026. |
 | La Biblia en Español Sencillo (`bible.bes`) | [eBible.org — spabes](https://ebible.org/Scriptures/spabes_usfm.zip) | Dominio público | `copr.htm` del paquete declara Public Domain. |
@@ -23,6 +25,7 @@ este repositorio (`docs/v1/`) y de la geometría de mapas que acompaña a la app
 | Léxico Strong (`lexicon.strongs`) | [STEPBible.org / STEPBible-Data](https://github.com/STEPBible/STEPBible-Data) (TBESH/TBESG) · [CrossWire StrongsHebrew](https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=StrongsHebrew) (definiciones hebreas) | **CC BY 4.0** para TBESH/TBESG; **dominio público** para Strong's Hebrew Dictionary | Las glosas y la morfología proceden de STEPBible (CC BY 4.0). Las definiciones hebreas son el *Strong's Hebrew Dictionary* de CrossWire, de dominio público. Las definiciones griegas son TBESG (CC BY 4.0). |
 | Matthew Henry, comentario conciso (`commentary.matthew-henry-concise`) | [lyteword/mhenry-concise](https://github.com/lyteword/mhenry-concise) · [mhenry-complete](https://github.com/lyteword/mhenry-complete) | CC0-1.0 en la edición Markdown; texto original de dominio público | GitHub API del repositorio declara `CC0-1.0`; 2 Reyes 1 se toma de la edición completa, también CC0. |
 | Diccionario bíblico de Easton, 1897 (`dictionary.easton`) | [JWBickel/BibleDictionaries](https://huggingface.co/datasets/JWBickel/BibleDictionaries) · `Easton's Bible Dictionary.jsonl` | Texto original de dominio público | Matthew George Easton (1823–1894); el diccionario se publicó en 1897 y la transcripción JSONL reproduce ese texto. El repositorio de la transcripción no declara una licencia adicional. |
+| Gazetteer bíblico (`dataset.gazetteer`) | [OpenBible.info — Bible-Geocoding-Data](https://github.com/openbibleinfo/Bible-Geocoding-Data) · `data/ancient.jsonl` | **CC BY 4.0** (geometría derivada de OpenStreetMap, ODbL) | La ficha del repo declara CC BY 4.0. Convertidos 1 309 de 1 342 lugares antiguos (los que tienen coordenadas de resolución): `catalog/tools/import_geocoding.py` en aletheia reduce esa fuente, que no se redistribuye. |
 | Treasury of Scripture Knowledge (TSK) | [ariseshinestudio/TSK](https://github.com/ariseshinestudio/TSK) · [JustVerses.com](https://www.justverses.com/) | Dominio público | La ficha del repositorio indica “Provider: JustVerses.com · License: Public Domain”; el TSK original es una obra del siglo XIX. |
 | Geometría de mapas (`app/assets/maps/`) | [Natural Earth](https://www.naturalearthdata.com/) — `ne_110m_land`, `ne_110m_lakes` | Dominio público | Natural Earth declara sus datos en dominio público; no se exige atribución, pero se conserva en la app y en este aviso. |
 | Coordenadas de lugares bíblicos | [OpenBible.info Bible Geocoding](https://github.com/openbibleinfo/Bible-Geocoding-Data) | **CC BY 4.0** | La ficha del repositorio declara CC BY 4.0. Se usan las coordenadas de los lugares, no las imágenes ni las teselas. La atribución aparece al pie de cada mapa. |
@@ -49,7 +52,8 @@ conservarse, como mínimo:
 - **OpenBible.info:** «Coordenadas de lugares: OpenBible.info Bible Geocoding,
   CC BY 4.0». Enlace:
   <https://github.com/openbibleinfo/Bible-Geocoding-Data>. La app no altera
-  las coordenadas; solo las usa para situar marcadores.
+  las coordenadas; solo las usa para situar marcadores y el gazetteer solo
+  reproduce posiciones, tipos y referencias, sin teselas ni imágenes.
 - **Natural Earth:** «Geometría: Natural Earth, dominio público». Enlace:
   <https://www.naturalearthdata.com/>.
 
@@ -75,19 +79,20 @@ estos textos.
 
 ## 4. Recuentos de la edición actual
 
-- **14 recursos:** 9 Biblias (5 en español, 2 en inglés, TAHOT y TAGNT),
-  2 diccionarios (Easton y léxico Strong), 1 comentario, 1 devocional y
-  1 Factbook de **32 artículos** (19 con mapa).
-- **248 870 versículos indexados** y **23 633 secciones no bíblicas**;
-  **272 503 entradas FTS5** en total.
+- **17 recursos:** 11 Biblias (5 en español, 4 en inglés, TAHOT y TAGNT),
+  2 diccionarios (Easton y léxico Strong), 1 comentario, 1 devocional,
+  1 Factbook de **32 artículos** (19 con mapa) y 1 gazetteer de **1 309
+  lugares** bíblicos con coordenadas y referencias.
+- **311 054 versículos indexados** y **24 942 secciones no bíblicas**;
+  **335 996 entradas FTS5** en total.
 - **376 083 enlaces** de referencias cruzadas del TSK.
 - TAHOT: 39 libros, 929 capítulos, 23 261 versículos (incluidos los títulos de
   los salmos como versículo 0) y 305 417 palabras.
 - TAGNT: 27 libros, 260 capítulos, 7 953 versículos y 138 140 palabras.
 - Léxico Strong: 18 085 entradas (8 723 hebreas y 9 362 griegas).
-- Los assets ocupan **92 MB**, de los cuales 48,8 MB son el índice FTS5
+- Los assets ocupan **90,8 MB**, de los cuales 53 MB son el índice FTS5
   comprimido. La geometría de los mapas añade unos 171 KB.
 
-La fecha de verificación de estas fuentes es **2026-10-20**. Para reproducir el
+La fecha de verificación de estas fuentes es **2026-10-23**. Para reproducir el
 catálogo, véase [`catalog/README.md`](catalog/README.md) y
 [`docs/spec/05-fuentes-contenido.md`](docs/spec/05-fuentes-contenido.md).
