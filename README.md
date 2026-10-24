@@ -16,7 +16,7 @@ necesita y cachearlos.
 ```text
 v1/
   mods.json                 manifiesto de versión y archivos principales
-  index.json                fichas de los 14 recursos
+  index.json                fichas de los 27 recursos
   search.meta.json          hash, tamaño y conteos del índice FTS5
   search.sqlite.gz          índice FTS5 comprimido (~48,8 MB)
   morphology.json           descripciones de morfología
@@ -82,10 +82,13 @@ de `NOTICE.md`.
 
 ## Estado
 
-- **14 recursos:** 9 Biblias (RV1909, KJV, ASV, BLL, SBLM, BES, VBL, TAHOT y
-  TAGNT), léxico Strong, comentario de Matthew Henry, diccionario de Easton,
-  devocional diario y Factbook.
-- **248 870 versículos** y **23 633 secciones no bíblicas** en el índice FTS5.
+- **27 recursos:** 12 Biblias (RV1909, KJV, ASV, BLL, SBLM, BES, VBL, TAHOT,
+  TAGNT, BSB, WEB y la Biblia Platense con canon amplio), léxico Strong,
+  6 comentarios (Matthew Henry conciso, Wesley, Clarke, Calvino, Catena Aurea
+  y Lutero), 3 diccionarios (Easton, Webster 1828 y Strong), 2 devocionales
+  (diario propio y Morning and Evening de Spurgeon), 2 documentos (Josefo y
+  Didaché en griego), gazetteer y Factbook.
+- **346 798 versículos** y **94 335 secciones no bíblicas** en el índice FTS5.
 - **376 083 referencias cruzadas** del TSK.
 - **18 mapas** dibujados por la app con geometría de Natural Earth y
   coordenadas de OpenBible.info; la geometría se empaqueta con la app porque
