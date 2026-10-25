@@ -89,18 +89,24 @@ estos textos.
 
 ## 4. Recuentos de la edición actual
 
-- **17 recursos:** 11 Biblias (5 en español, 4 en inglés, TAHOT y TAGNT),
-  2 diccionarios (Easton y léxico Strong), 1 comentario, 1 devocional,
-  1 Factbook de **32 artículos** (19 con mapa) y 1 gazetteer de **1 309
-  lugares** bíblicos con coordenadas y referencias.
-- **311 054 versículos indexados** y **24 942 secciones no bíblicas**;
-  **335 996 entradas FTS5** en total.
+- **27 recursos** (28 módulos contando el índice de búsqueda): 12 Biblias
+  (RV1909, KJV, ASV, BLL, SBLM, BES, VBL, BSB, WEB, TAHOT y TAGNT, más el
+  Platense rioplatense con canon amplio y notas al pie navegables),
+  3 diccionarios (Easton, Webster 1828 y léxico Strong), 6 comentarios
+  (Matthew Henry Concise, Catena Aurea, Clarke, Wesley, Lutero y Calvino),
+  2 devocionales (diario en español y Morning and Evening de Spurgeon),
+  1 Factbook, 2 documentos (Didajé griego, Josefo) y 1 gazetteer de
+  **1 309 lugares** bíblicos con coordenadas y referencias; adicionalmente
+  el módulo `catalog.search` con el índice FTS5 completo (~76 MB) para
+  búsqueda sin servicio.
+- **346 798 versículos indexados** y **94 335 secciones no bíblicas**;
+  **441 133 entradas FTS5** en total.
 - **376 083 enlaces** de referencias cruzadas del TSK.
 - TAHOT: 39 libros, 929 capítulos, 23 261 versículos (incluidos los títulos de
   los salmos como versículo 0) y 305 417 palabras.
 - TAGNT: 27 libros, 260 capítulos, 7 953 versículos y 138 140 palabras.
 - Léxico Strong: 18 085 entradas (8 723 hebreas y 9 362 griegas).
-- Los assets ocupan **90,8 MB**, de los cuales 53 MB son el índice FTS5
+- Los assets ocupan **148,6 MB**, de los cuales 75,9 MB son el índice FTS5
   comprimido. La geometría de los mapas añade unos 171 KB.
 
 La fecha de verificación de estas fuentes es **2026-10-23**. Para reproducir el

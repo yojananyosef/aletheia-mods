@@ -18,7 +18,7 @@ v1/
   mods.json                 manifiesto de versión y archivos principales
   index.json                fichas de los 27 recursos
   search.meta.json          hash, tamaño y conteos del índice FTS5
-  search.sqlite.gz          índice FTS5 comprimido (~48,8 MB)
+  search.sqlite.gz          índice FTS5 comprimido (~75,9 MB)
   morphology.json           descripciones de morfología
   rv1909/
     manifest.json
